@@ -17,7 +17,9 @@ const paymentMethods = {
 
 // Function to fetch tools
 async function fetchTools() {
+
     try {
+        console.log("in fetching tools")
         const response = await fetch('https://software-zobd.onrender.com/api/tool');  // Replace with your API endpoint
         const tools = await response.json();
 
@@ -157,4 +159,8 @@ function showPaymentInfo(tool, paymentMethod, toolModal) {
 }
 
 // Fetch tools when the page loads
-window.onload = fetchTools;
+// window.onload = fetchTools;
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
+    fetchTools();  // Call your function here
+});
