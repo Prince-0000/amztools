@@ -1,0 +1,87 @@
+Image and video files are copyrighted and therefore cannot be made available with the package. Therefore, you can find them on our demo page or in the sources cited on the item page.
+
+
+      <li class="nav-item dropdown position-static">
+                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            All Tools
+                        </a>
+
+                        <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown"
+                            style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                            <div class="container">
+                                <div class="row my-4 " id="toolsDropdownContainer">
+                                    <!-- Tools will be rendered here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+                                        border-top-left-radius: 0;
+                                        border-top-right-radius: 0;
+                                      ">
+                            <div class="container">
+                                <div class="row my-4">
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                                                Lorem ipsum
+                                            </p>
+                                            <a href="" class="list-group-item list-group-item-action">Dolor
+                                                sit</a>
+                                            <a href="" class="list-group-item list-group-item-action">Amet
+                                                consectetur</a>
+                                            <a href="" class="list-group-item list-group-item-action">Cras
+                                                justo odio</a>
+                                            <a href="" class="list-group-item list-group-item-action">Adipisicing
+                                                elit</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                                                Explicabo voluptas
+                                            </p>
+                                            <a href="" class="list-group-item list-group-item-action">Perspiciatis
+                                                quo</a>
+                                            <a href="" class="list-group-item list-group-item-action">Cras
+                                                justo odio</a>
+                                            <a href="" class="list-group-item list-group-item-action">Laudantium
+                                                maiores</a>
+                                            <a href="" class="list-group-item list-group-item-action">Provident
+                                                dolor</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                                                Iste quaerato
+                                            </p>
+                                            <a href="" class="list-group-item list-group-item-action">Cras
+                                                justo odio</a>
+                                            <a href="" class="list-group-item list-group-item-action">Est
+                                                iure</a>
+                                            <a href="" class="list-group-item list-group-item-action">Praesentium</a>
+                                            <a href="" class="list-group-item list-group-item-action">Laboriosam</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                                                Cras justo odio
+                                            </p>
+                                            <a href="" class="list-group-item list-group-item-action">Saepe</a>
+                                            <a href="" class="list-group-item list-group-item-action">Vel
+                                                alias</a>
+                                            <a href="" class="list-group-item list-group-item-action">Sunt
+                                                doloribus</a>
+                                            <a href="" class="list-group-item list-group-item-action">Cum
+                                                dolores</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </li>
+
