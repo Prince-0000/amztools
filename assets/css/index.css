@@ -1,100 +1,55 @@
-/* Modal Dialog */
-.modal-dialog {
-    max-width: 600px;
-}
-
 /* Modal Header */
 .modal-header {
-    background-color: #007bff;
-    color: white;
-}
-
-/* Flexbox for the Modal Body */
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    gap: 1rem;
-}
-
-/* Tool Description */
-.tool-description {
     text-align: center;
+    padding: 10px 15px; /* Adjust header padding */
 }
 
-/* Highlight the active button */
-.pricing-btn.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-}
-
-/* Add some padding for visual comfort */
-.pricing-options .pricing-btn {
-    padding: 10px;
-}
-
-/* Price Display */
-.price-display h4 {
+/* Tool Name Styles */
+#toolName {
+    font-size: 24px;
     font-weight: bold;
 }
 
-
-/* Payment Options in Flex Column (Stacked) */
-.payment-options label {
+/* Modal Body Styles */
+.modal-body {
     display: flex;
-    align-items: center;
-    margin-bottom: 5px;
+    flex-direction: column;
+    padding: 10px; /* Reduce body padding */
+    gap: 5px; /* Reduced row spacing for the first modal */
 }
 
-/* Modal Footer */
-.modal-footer {
-    border-top: none;
-    justify-content: center;
-}
-#qrCode {
-    max-width: 100%;      /* Ensures the image doesn't exceed the width of the modal */
-    height: auto;         /* Keeps the aspect ratio intact */
-    object-fit: cover;    /* Crops the image if it doesn't fit the container exactly */
-    border-radius: 8px;   /* Adds rounded corners if desired */
-    margin: 0 auto;       /* Centers the image horizontally */
-/* Pricing options layout */
-}
-#pricingButtonsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-#pricingButtonsContainer .col-md-4 {
-    margin-bottom: 10px;
-}
-
-/* Payment options layout */
-#paymentMethodContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* Ensure buttons are in a row on larger screens and stacked on smaller screens */
-@media (min-width: 768px) {
-    .pricing-options .btn, .payment-options .btn {
-        flex: 1;
-        margin: 0 10px; /* Add space between buttons */
-    }
-}
-@media (max-width: 767px) {
-    .pricing-options .btn, .payment-options .btn {
-        margin-bottom: 10px;
-        width: 100%; /* Stack the buttons in mobile */
-    }
-}
-.align-center{
-    display: flex;
+/* Tool Description Styles */
+.tool-description {
     text-align: center;
-    justify-content: center;
+    padding: 0; /* Remove padding */
+}
 
+/* Pricing, Currency, and Payment Options Styles */
+.pricing-options, .currency-options, .payment-options {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0; /* Remove padding */
+    gap: 5px; /* Minimized gap between sections */
+}
+
+/* Button Styles */
+.pricing-options .btn, 
+.currency-options .btn, 
+.payment-options .btn {
+    border: 1px solid #007bff; /* Add border to buttons */
+    padding: 5px 10px; /* Adjust padding to minimize button size */
+}
+
+/* Price Display Styles */
+.price-display {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* QR Code Styles */
+#qrCode {
+    display: block;
+    margin: 0 auto;
 }
 
