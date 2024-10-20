@@ -53,3 +53,29 @@
     margin: 0 auto;
 }
 
+.counter-container {
+    display: flex;                /* Use flexbox for alignment */
+    flex-direction: column;      /* Stack text vertically */
+    align-items: center;         /* Center items horizontally */
+    padding: 15px 20px;          /* Padding around content */
+    margin: 10px;                /* Margin between items */
+    transition: transform 0.2s;  /* Transition effect */
+}
+
+.counter-container:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.animated-counter {
+    font-size: 36px;            /* Font size for the counter */
+    font-weight: bold;          /* Bold font for emphasis */
+    color: #333;                /* Dark color for contrast */
+    margin: 0;                  /* Remove default margin */
+}
+
+h4 {
+    font-size: 16px;            /* Font size for the label */
+    color: #666;                /* Slightly lighter color for labels */
+    margin-top: 5px;            /* Space above labels */
+}
+

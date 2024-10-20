@@ -1320,8 +1320,18 @@ $(document).ready(function () {
       }
   };
 
+  const sampleToolData = {
+    name: "Bundle",
+    description: "This is bundle of tools",
+    month: 600, 
+    quarter: 999, 
+    yearly: 3000
+  };
+
+  
   // Function to fetch tools
   async function fetchTools() {
+    console.log("in fetch tools")
       try {
           console.log("in fetching tools");
           const response = await fetch('https://software-zobd.onrender.com/api/tool');  // Replace with your API endpoint
@@ -1332,21 +1342,21 @@ $(document).ready(function () {
 
           tools.forEach(tool => {
               const toolElement = `
-                  <div class="col-md-4 mb-4 single-tool">
-    <div class="rounded bundleCard" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-        <div class="card-image" style="padding: 0px 0px 0; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8;">
-            <img class="img-fluid card-img" src="${tool.img}" alt="${tool.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                    <div class="col-6 col-md-4 mb-4 single-tool">  <!-- 2 columns on mobile, 3 on medium and above -->
+            <div class="rounded bundleCard" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                <div class="card-image" style="padding: 0px 0px 0; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8;">
+                    <img class="img-fluid card-img" src="${tool.img}" alt="${tool.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                </div>
+                <div class="card-body text-center pb-0 mt-4" style="padding: 15px; flex-grow: 1;">
+                    <h5 style="font-size: 18px; font-weight: bold; color: #333;">${tool.name}</h5>
+                    <span class="badge tag p-3 card-price" style="color: #000; font-size: 16px;">₹ ${tool.month}</span>
+                    <button class="btn mx-auto primary-button smooth-anchor mt-2 w-100 buy-button" data-tool-id="${tool._id}" 
+                        style="font-size: 16px; padding: 10px; border-radius: 5px; background-color: var(--primary-color); color: #fff; border: none; margin-bottom: 10px;">
+                        <i class="icon-arrow-right-circle" style="margin-left: 5px;"></i> Buy
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="card-body text-center pb-0 mt-4" style="padding: 15px; flex-grow: 1;">
-            <h5 style="font-size: 18px; font-weight: bold; color: #333;">${tool.name}</h5>
-            <span class="badge tag p-3 card-price" style="color: #000; font-size: 16px;">₹ ${tool.month}</span>
-            <button class="btn mx-auto primary-button smooth-anchor mt-2 w-100 buy-button" data-tool-id="${tool._id}" 
-                style="font-size: 16px; padding: 10px; border-radius: 5px; background-color: var(--primary-color); color: #fff; border: none; margin-bottom: 10px;">
-                <i class="icon-arrow-right-circle" style="margin-left: 5px;"></i> Buy
-            </button>
-        </div>
-    </div>
-</div>
               `;
               toolContainer.innerHTML += toolElement;
           });
@@ -1462,9 +1472,58 @@ $(document).ready(function () {
           });
       }
   }
+  function showSampleToolModal() {
+    resetModal(); // Reset modal state
 
-  // Fetch tools when the page loads
+    // Populate modal with the sample tool data
+    document.getElementById('toolName').textContent = sampleToolData.name;
+    document.getElementById('toolDescription').textContent = sampleToolData.description;
+    updatePriceDisplay(sampleToolData, 'month'); // Default to monthly price
+
+    // Attach event listeners to the pricing buttons
+    document.querySelectorAll('.pricing-btn').forEach(button => {
+      button.addEventListener('click', event => {
+        document.querySelectorAll('.pricing-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        const priceType = event.currentTarget.getAttribute('data-price');
+        updatePriceDisplay(sampleToolData, priceType);
+      });
+    });
+
+    // Attach event listeners to currency buttons
+    document.querySelectorAll('.currency-btn').forEach(button => {
+      button.addEventListener('click', event => {
+        document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        currentCurrency = event.currentTarget.getAttribute('data-currency');
+        const priceType = document.querySelector('.pricing-btn.active').getAttribute('data-price');
+        updatePriceDisplay(sampleToolData, priceType); // Update price when currency is switched
+      });
+    });
+
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('toolModal'));
+    modal.show();
+
+    // Handle payment options
+    document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(sampleToolData, 'paypal', modal);
+    document.getElementById('payWithUPI').onclick = () => showPaymentInfo(sampleToolData, 'upi', modal);
+
+    // Reset modal on close
+    const closeButton = document.querySelector('.btn-close');
+    closeButton.addEventListener('click', () => {
+      modal.hide();
+      resetModal(); // Ensure defaults are set after close
+    });
+  }
   fetchTools();
+  document.getElementById('bundleBuy').addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default action
+    showSampleToolModal(); // Show the sample tool modal
+  });
+  // Fetch tools when the page loads
 });
 
 

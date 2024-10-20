@@ -16,7 +16,7 @@
     <meta name="description"
         content="Shop 20+ affordable, high-quality tools with one-click access at World’s Best Tool Provider. Quality equipment for hobbyists and professionals.">
     <meta name="keywords"
-        content="amztools, tool provider, software bundles, affordable tools, tool provider, tool bundles, quality tool, ecommerce tool">
+        content="amztools, tool provider, software bundles, affordable tools, tool provider, tool bundles, quality tool, Agency tool">
     <link rel="canonical" href="https://www.softwarewalaa.com/" />
 
 
@@ -101,7 +101,7 @@
                     <!-- Leverage<i class="version-number">2.1</i> -->
 
                     <!-- Custom Logo -->
-                    <img src="assets/images/softwarewala.jpeg" alt="Softwarewala">
+                    <img src="assets/images/toolslogo.png" alt="Softwarewala">
 
                 </a>
 
@@ -366,17 +366,13 @@
                 <div class="col-12 col-md-6  align-self-center text-center item">
                     <div class="card w-100">
                         <i class="icon icon-fire"></i>
-                        <h4>E-commerce plan</h4>
+                        <h4>Agency plan</h4>
                         <span class="price"><i>₹ 1500/ $18 For 1 Month</i> </span>
                         <span class="price"><i>₹ 5000/ $60 For 6 Months</i> </span>
                         <span class="price"><i> ₹ 7000/ $84 For 12 Months</i> </span>
                         <!-- <span class="price"><i>$</i>199</span> -->
 
                         <ul class="list-group list-group-flush ">
-                            <li class="list-group-item d-flex justify-content-between align-items-center text-left">
-                                <span>Egrow</span>
-                                <i class="icon-min m-0 icon-check text-right"></i>
-                            </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center text-left">
                                 <span>Envato Element</span>
                                 <i class="icon-min m-0 icon-check text-right"></i>
@@ -517,13 +513,9 @@
                                 <span>SEOSite Checkup</span>
                                 <i class="icon-min m-0 icon-check text-right"></i>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center text-left">
-                                <span>Agency Plan</span>
-                                <i class="icon-min m-0 icon-check text-right"></i>
-                            </li>
                         </ul>
-                        <a data-toggle="modal" data-target="#bundleModal" type="button"
-                            class=" btn mx-auto primary-button buy-button"><i class="icon-arrow-right-circle"></i>Buy
+                        <a type="button"
+                            id='bundleBuy' class=" btn mx-auto primary-button buy-button"><i class="icon-arrow-right-circle"></i>Buy
                             Now</a>
                     </div>
                 </div>
@@ -573,13 +565,12 @@
             <div class="row text-center intro">
                 <div class="col-12">
                     <h2>Tools</h2>
-                    <!-- <p class="text-max-800">We see all types of projects as if they were ours. This brings us closer to
-                        our clients' projects bringing much more confidence and commitment.</p> -->
                 </div>
             </div>
-            <div data-aos-id="counter" data-aos="fade-up" data-aos-delay="200"
-            class="row justify-content-center text-center items gap-3 all-tools">
-            <!-- Dynamically added tools will go here -->
+            <!-- Tool Container -->
+            <div class="row justify-content-center text-center all-tools" id="toolContainer">
+                <!-- Dynamically added tools will go here -->
+            </div>
         </div>
         <!-- Modal HTML -->
         <div class="modal" id="toolModal" tabindex="-1" aria-hidden="true">
@@ -646,9 +637,14 @@
                             <p id="contactDetails" style="text-align: center;"></p>
                             <p style="text-align: center;">Pay using the QR code and send a screenshot to our team. We'll connect with you within 30 minutes!</p>
                         </div>
+                        <div>
                         <img id="qrCode" src="" alt="Payment QR Code" class="img-fluid" style="width: 50%; height: auto;">
-                        <p style="text-align:center; font-weight:500;">Contact Details</p>
-                        <p style="text-align:center; font-weight:300"></p>
+                    </div>
+                        <div>
+                            <p style="margin-top:5px; margin-bottom:1px; padding:0px; text-align:center; font-weight:500;">Contact Details</p>
+                            <a href="tel:+918200631993" style="text-decoration: none; color: blue;">+91 820 063 1993</a>
+
+                        </div>
                     </div>
                     <div>
                     </div>
@@ -705,25 +701,24 @@
     <!-- Skills -->
     <section id="skills" class="section-3 counter skills featured right">
         <div class="container">
-            <div class="row text-center intro">
+            <div class="row text-center intro mb-4">
                 <div class="col-12">
                     <h2>Main Skills</h2>
-                    <!-- <p class="text-max-800">We see all types of projects as if they were ours. This brings us closer to
-                        our clients' projects bringing much more confidence and commitment.</p> -->
                 </div>
             </div>
-            <div class="row d-flex align-items-center justify-content-center ">
-                <div class=" item counter-container">
-                    <h2 class="animated-counter" data-target="500">500 </h2>
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-auto item counter-container">
+                    <h2 class="animated-counter" data-target="500">500</h2>
                     <h4>Clients</h4>
                 </div>
-                <div class=" item counter-container">
+                <div class="col-auto item counter-container">
                     <h2 class="animated-counter" data-target="20">20</h2>
                     <h4>Tools</h4>
                 </div>
             </div>
         </div>
     </section>
+    
 
 
 
