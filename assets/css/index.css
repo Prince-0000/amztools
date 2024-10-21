@@ -46,6 +46,65 @@
     font-size: 20px;
     font-weight: bold;
 }
+/* Base button styles */
+.pricing-btn,
+.currency-btn,
+#payWithUPI,
+#payWithPayPal {
+    border: 1px solid transparent; /* Start with a transparent border */
+    color: #000; /* Default text color for inactive buttons (black) */
+    background-color: transparent; /* No background color for inactive buttons */
+}
+
+/* Inactive button styles */
+.pricing-btn:not(.active),
+.currency-btn:not(.active) {
+    border: 1px solid #EC8308; /* Set border color when inactive */
+    color: #000; /* Ensure text color is black when inactive */
+}
+
+/* Active button styles */
+.pricing-btn.active,
+.currency-btn.active,
+#payWithUPI.active,
+#payWithPayPal.active {
+    background-color: #EC8308 !important; /* Fill color for active buttons */
+    color: #fff !important; /* Text color white for active buttons */
+}
+
+/* Hover effects */
+.pricing-btn:hover,
+.currency-btn:hover,
+#payWithUPI:hover,
+#payWithPayPal:hover {
+    background-color: #EC8308; /* Hover fill color */
+    color: #fff; /* Text color white on hover */
+}
+
+/* Inactive button hover effects */
+.pricing-btn:not(.active):hover,
+.currency-btn:not(.active):hover {
+    border: 1px solid #EC8308; /* Keep border color on hover */
+    outline: 2px solid #EC8308; /* Optional: Add outline color on hover */
+    color: #000; /* Keep text color black */
+}
+
+/* Payment button styles */
+#payWithUPI,
+#payWithPayPal {
+    padding: 5px 10px; /* Adjust padding */
+}
+
+/* Override Bootstrap default styles for button hover states */
+.btn-outline-primary {
+    border-color: #EC8308 !important; /* Ensure border color matches */
+}
+
+.btn-outline-primary:hover {
+    background-color: #EC8308 !important; /* Ensure hover background color */
+    color: #fff !important; /* Ensure text color white on hover */
+}
+
 
 /* QR Code Styles */
 #qrCode {

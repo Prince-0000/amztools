@@ -1332,13 +1332,13 @@ $(document).ready(function () {
   // Function to fetch tools
   async function fetchTools() {
     console.log("in fetch tools")
+    const toolContainer = document.querySelector('.all-tools');
+    toolContainer.innerHTML = '<p>Loading tools...</p>'; 
       try {
-          console.log("in fetching tools");
           const response = await fetch('https://software-zobd.onrender.com/api/tool');  // Replace with your API endpoint
           const tools = await response.json();
 
-          const toolContainer = document.querySelector('.all-tools');
-          toolContainer.innerHTML = ''; // Clear the container
+          toolContainer.innerHTML = ''; 
 
           tools.forEach(tool => {
               const toolElement = `
@@ -1371,6 +1371,7 @@ $(document).ready(function () {
           });
 
       } catch (error) {
+        toolContainer.innerHTML = '<p>Failed to load tools. Please refresh page.</p>';
           console.error('Error fetching tools:', error);
       }
   }
@@ -1413,6 +1414,7 @@ $(document).ready(function () {
           button.addEventListener('click', event => {
               document.querySelectorAll('.pricing-btn').forEach(btn => btn.classList.remove('active'));
               event.currentTarget.classList.add('active');
+              
 
               const priceType = event.currentTarget.getAttribute('data-price');
               updatePriceDisplay(tool, priceType);
@@ -1449,29 +1451,37 @@ $(document).ready(function () {
 
   // Function to show the payment modal and close the first modal
   function showPaymentInfo(tool, paymentMethod, toolModal) {
-      const paymentDetails = paymentMethods[paymentMethod];
-      if (paymentDetails) {
-          document.getElementById('qrCode').src = paymentDetails.qrCode;
-          const selectedPrice = document.getElementById('priceDisplay').textContent;
+    const paymentDetails = paymentMethods[paymentMethod];
+    if (paymentDetails) {
+        if (paymentMethod === 'paypal') {
+            // For PayPal, remove the QR code and display the email only
+            document.getElementById('qrCode').style.display = 'none';  // Hide the QR code
+            document.getElementById('contactDetails').innerHTML = `Email: ${paymentDetails.contact} <br>
+                <strong>Total Price: ${document.getElementById('priceDisplay').textContent}</strong>
+            `;
+            document.getElementById('contact').textContent = 'moinzainab786@gmail.com'
+        } else {
+            // For other payment methods, display QR code
+            document.getElementById('qrCode').style.display = 'block';  // Show the QR code
+            document.getElementById('qrCode').src = paymentDetails.qrCode;  // Set the QR code
+            document.getElementById('contactDetails').innerHTML = `
+                ${paymentDetails.contact} <br>
+                <strong>Total Price: ${document.getElementById('priceDisplay').textContent}</strong>
+            `;
+        }
 
-          // Display payment info and price
-          document.getElementById('contactDetails').innerHTML = `
-              ${paymentDetails.contact} <br>
-              <strong>Total Price: ${selectedPrice}</strong>
-          `;
+        // Close the first modal and show the second modal
+        toolModal.hide();
+        const paymentModal = new bootstrap.Modal(document.getElementById('paymentInfoModal'));
+        paymentModal.show();
 
-          // Close the first modal and show the second modal
-          toolModal.hide();
-          const paymentModal = new bootstrap.Modal(document.getElementById('paymentInfoModal'));
-          paymentModal.show();
-
-          // Reset payment modal on close
-          const closeButton = document.querySelector('.close');
-          closeButton.addEventListener('click', () => {
-              paymentModal.hide();
-          });
-      }
-  }
+        // Reset payment modal on close
+        const closeButton = document.querySelector('.close');
+        closeButton.addEventListener('click', () => {
+            paymentModal.hide();
+        });
+    }
+}
   function showSampleToolModal() {
     resetModal(); // Reset modal state
 
