@@ -1342,21 +1342,21 @@ $(document).ready(function () {
 
           tools.forEach(tool => {
               const toolElement = `
-                    <div class="col-6 col-md-4 mb-4 single-tool">  <!-- 2 columns on mobile, 3 on medium and above -->
-            <div class="rounded bundleCard" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                <div class="card-image" style="padding: 0px 0px 0; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8;">
-                    <img class="img-fluid card-img" src="${tool.img}" alt="${tool.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-                </div>
-                <div class="card-body text-center pb-0 mt-4" style="padding: 15px; flex-grow: 1;">
-                    <h5 style="font-size: 18px; font-weight: bold; color: #333;">${tool.name}</h5>
-                    <span class="badge tag p-3 card-price" style="color: #000; font-size: 16px;">₹ ${tool.month}</span>
-                    <button class="btn mx-auto primary-button smooth-anchor mt-2 w-100 buy-button" data-tool-id="${tool._id}" 
-                        style="font-size: 16px; padding: 10px; border-radius: 5px; background-color: var(--primary-color); color: #fff; border: none; margin-bottom: 10px;">
-                        <i class="icon-arrow-right-circle" style="margin-left: 5px;"></i> Buy
-                    </button>
-                </div>
+                     <div class="col-12 col-sm-6 col-md-4 mb-4 single-tool">  <!-- 1 column on small devices, 3 on medium and above -->
+        <div class="rounded bundleCard" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+            <div class="card-image" style="padding: 0px; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8;">
+                <img class="img-fluid card-img" src="${tool.img}" alt="${tool.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+            </div>
+            <div class="card-body text-center pb-0 mt-4" style="padding: 15px; flex-grow: 1;">
+                <h5 style="font-size: 18px; font-weight: bold; color: #333;">${tool.name}</h5>
+                <span class="badge tag p-3 card-price" style="color: #000; font-size: 16px;">₹ ${tool.month}</span>
+                <button class="btn mx-auto primary-button smooth-anchor mt-2 w-100 buy-button" data-tool-id="${tool._id}" 
+                    style="font-size: 16px; padding: 10px; border-radius: 5px; background-color: var(--primary-color); color: #fff; border: none; margin-bottom: 10px;">
+                    <i class="icon-arrow-right-circle" style="margin-left: 5px;"></i> Buy
+                </button>
             </div>
         </div>
+    </div>
               `;
               toolContainer.innerHTML += toolElement;
           });
