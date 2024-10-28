@@ -1381,6 +1381,7 @@ $(document).ready(function () {
   // Function to reset modal to default state
   function resetModal() {
       currentCurrency = 'inr'; // Reset to INR currency
+      document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelector('#rupee-btn').classList.add('active'); // Default currency
       document.querySelectorAll('.pricing-btn').forEach(btn => btn.classList.remove('active')); // Reset pricing buttons
@@ -1434,15 +1435,51 @@ $(document).ready(function () {
               updatePriceDisplay(tool, priceType); // Update price when currency is switched
           });
       });
+      document.querySelectorAll('.payment-btn').forEach(button => {
+        button.addEventListener('click', event => {
+            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        });
+    });
 
       // Show the modal
       const modal = new bootstrap.Modal(document.getElementById('toolModal'));
       modal.show();
 
       // Handle payment options
-      document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(tool, 'paypal', modal);
-      document.getElementById('payWithUPI').onclick = () => showPaymentInfo(tool, 'upi', modal);
-
+      // document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(tool, 'paypal', modal);
+      // document.getElementById('payWithUPI').onclick = () => showPaymentInfo(tool, 'upi', modal);
+      const buyButton = document.getElementById('buyButton');
+      const payWithPayPalButton = document.getElementById('payWithPayPal');
+      const payWithUPIButton = document.getElementById('payWithUPI');
+      
+      // Disable "Buy" button initially
+      buyButton.disabled = true;
+      
+      // Add event listeners to payment selection buttons to enable "Buy" button
+      payWithPayPalButton.onclick = () => {
+          selectPaymentMethod('paypal');
+      };
+      payWithUPIButton.onclick = () => {
+          selectPaymentMethod('upi');
+      };
+      
+      // Track selected payment method
+      let selectedPaymentMethod = null;
+      
+      // Function to handle payment method selection
+      function selectPaymentMethod(method) {
+          selectedPaymentMethod = method;
+          buyButton.disabled = false; // Enable "Buy" button
+      }
+      
+      // Add event listener to "Buy" button to open payment modal
+      buyButton.addEventListener('click', () => {
+          if (selectedPaymentMethod) {
+              // If a payment method is selected, proceed to the payment modal
+              showPaymentInfo(selectedPaymentMethod, modal);
+          }
+      });
       // Reset modal on close
       const closeButton = document.querySelector('.btn-close');
       closeButton.addEventListener('click', () => {
@@ -1452,7 +1489,7 @@ $(document).ready(function () {
   }
 
   // Function to show the payment modal and close the first modal
-  function showPaymentInfo(tool, paymentMethod, toolModal) {
+  function showPaymentInfo(paymentMethod, toolModal) {
     const paymentDetails = paymentMethods[paymentMethod];
     if (paymentDetails) {
         if (paymentMethod === 'paypal') {
@@ -1515,15 +1552,51 @@ $(document).ready(function () {
         updatePriceDisplay(sampleToolData, priceType); // Update price when currency is switched
       });
     });
+    document.querySelectorAll('.payment-btn').forEach(button => {
+      button.addEventListener('click', event => {
+          document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
+          event.currentTarget.classList.add('active');
+      });
+  });
 
     // Show the modal
     const modal = new bootstrap.Modal(document.getElementById('toolModal'));
     modal.show();
 
     // Handle payment options
-    document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(sampleToolData, 'paypal', modal);
-    document.getElementById('payWithUPI').onclick = () => showPaymentInfo(sampleToolData, 'upi', modal);
-
+    // document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(sampleToolData, 'paypal', modal);
+    // document.getElementById('payWithUPI').onclick = () => showPaymentInfo(sampleToolData, 'upi', modal);
+    const buyButton = document.getElementById('buyButton');
+    const payWithPayPalButton = document.getElementById('payWithPayPal');
+    const payWithUPIButton = document.getElementById('payWithUPI');
+    
+    // Disable "Buy" button initially
+    buyButton.disabled = true;
+    
+    // Add event listeners to payment selection buttons to enable "Buy" button
+    payWithPayPalButton.onclick = () => {
+        selectPaymentMethod('paypal');
+    };
+    payWithUPIButton.onclick = () => {
+        selectPaymentMethod('upi');
+    };
+    
+    // Track selected payment method
+    let selectedPaymentMethod = null;
+    
+    // Function to handle payment method selection
+    function selectPaymentMethod(method) {
+        selectedPaymentMethod = method;
+        buyButton.disabled = false; // Enable "Buy" button
+    }
+    
+    // Add event listener to "Buy" button to open payment modal
+    buyButton.addEventListener('click', () => {
+        if (selectedPaymentMethod) {
+            // If a payment method is selected, proceed to the payment modal
+            showPaymentInfo(selectedPaymentMethod, modal);
+        }
+    });
     // Reset modal on close
     const closeButton = document.querySelector('.btn-close');
     closeButton.addEventListener('click', () => {

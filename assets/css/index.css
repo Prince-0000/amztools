@@ -40,6 +40,15 @@
     border: 1px solid var(--primary-color); /* Add border to buttons */
     padding: 5px 10px; /* Adjust padding to minimize button size */
 }
+#buyButton{
+    border-radius: 10px;
+    margin-top:30px;
+    background-color: var(--primary-color);
+    color:white;
+    font-size: 16px; 
+    padding: 10px; 
+    border-radius: 5px;
+}
 
 /* Price Display Styles */
 .price-display {
