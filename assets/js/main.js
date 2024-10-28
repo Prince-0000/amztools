@@ -1313,10 +1313,12 @@ $(document).ready(function () {
       paypal: {
           qrCode: 'path_to_paypal_qr_code.png', // Replace with actual QR code image path
           contact: 'moinzainab786@gmail.com',
+          desc:'Pay on this Paypal email id and send a screenshot to below given whatsapp number. We\'ll connect with you within 30 minutes!'
       },
       upi: {
           qrCode: 'assets/images/upiqr.jpg', // Replace with actual QR code image path
           contact: 'toolswalaatoolswala@okhdfcbank',
+          desc:'Pay using the QR code and send a screenshot to below given whatsapp number. We\'ll connect with you within 30 minutes!'
       }
   };
 
@@ -1459,7 +1461,7 @@ $(document).ready(function () {
             document.getElementById('contactDetails').innerHTML = `Email: ${paymentDetails.contact} <br>
                 <strong>Total Price: ${document.getElementById('priceDisplay').textContent}</strong>
             `;
-            document.getElementById('contact').textContent = 'moinzainab786@gmail.com'
+            document.getElementById('description').textContent = `${paymentDetails.desc}`
         } else {
             // For other payment methods, display QR code
             document.getElementById('qrCode').style.display = 'block';  // Show the QR code
@@ -1468,6 +1470,7 @@ $(document).ready(function () {
                 ${paymentDetails.contact} <br>
                 <strong>Total Price: ${document.getElementById('priceDisplay').textContent}</strong>
             `;
+            document.getElementById('description').textContent = `${paymentDetails.desc}`
         }
 
         // Close the first modal and show the second modal
