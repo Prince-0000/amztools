@@ -37,7 +37,7 @@
 .pricing-options .btn, 
 .currency-options .btn, 
 .payment-options .btn {
-    border: 1px solid #007bff; /* Add border to buttons */
+    border: 1px solid var(--primary-color); /* Add border to buttons */
     padding: 5px 10px; /* Adjust padding to minimize button size */
 }
 
@@ -59,7 +59,7 @@
 /* Inactive button styles */
 .pricing-btn:not(.active),
 .currency-btn:not(.active) {
-    border: 1px solid #EC8308; /* Set border color when inactive */
+    border: 1px solid var(--primary-color); /* Set border color when inactive */
     color: #000; /* Ensure text color is black when inactive */
 }
 
@@ -68,7 +68,7 @@
 .currency-btn.active,
 #payWithUPI.active,
 #payWithPayPal.active {
-    background-color: #EC8308 !important; /* Fill color for active buttons */
+    background-color: var(--primary-color) !important; /* Fill color for active buttons */
     color: #fff !important; /* Text color white for active buttons */
 }
 
@@ -77,15 +77,15 @@
 .currency-btn:hover,
 #payWithUPI:hover,
 #payWithPayPal:hover {
-    background-color: #EC8308; /* Hover fill color */
+    background-color: var(--primary-color); /* Hover fill color */
     color: #fff; /* Text color white on hover */
 }
 
 /* Inactive button hover effects */
 .pricing-btn:not(.active):hover,
 .currency-btn:not(.active):hover {
-    border: 1px solid #EC8308; /* Keep border color on hover */
-    outline: 2px solid #EC8308; /* Optional: Add outline color on hover */
+    border: 1px solid var(--primary-color); /* Keep border color on hover */
+    outline: 2px solid var(--primary-color); /* Optional: Add outline color on hover */
     color: #000; /* Keep text color black */
 }
 
@@ -97,11 +97,11 @@
 
 /* Override Bootstrap default styles for button hover states */
 .btn-outline-primary {
-    border-color: #EC8308 !important; /* Ensure border color matches */
+    border-color: var(--primary-color) !important; /* Ensure border color matches */
 }
 
 .btn-outline-primary:hover {
-    background-color: #EC8308 !important; /* Ensure hover background color */
+    background-color: var(--primary-color) !important; /* Ensure hover background color */
     color: #fff !important; /* Ensure text color white on hover */
 }
 
