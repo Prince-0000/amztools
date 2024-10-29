@@ -1303,47 +1303,45 @@ jQuery(function ($) {
 //   });
 // });
 $(document).ready(function () {
-  // Conversion rate (You can update this based on the latest exchange rate)
-  const conversionRate = 0.012; // 1 Rupee = 0.012 USD
+  const conversionRate = 0.012;
 
-  let currentCurrency = 'inr'; // Tracks the current selected currency (default INR)
-  let currentPrice = { inr: 0, usd: 0 }; // Stores the current price in both INR and USD
+  let currentCurrency = "inr";
+  let currentPrice = { inr: 0, usd: 0 };
 
   const paymentMethods = {
-      paypal: {
-          qrCode: 'path_to_paypal_qr_code.png', // Replace with actual QR code image path
-          contact: 'moinzainab786@gmail.com',
-          desc:'Pay on this Paypal email id and send a screenshot to below given whatsapp number. We\'ll connect with you within 30 minutes!'
-      },
-      upi: {
-          qrCode: 'assets/images/upiqr.jpg', // Replace with actual QR code image path
-          contact: 'toolswalaatoolswala@okhdfcbank',
-          desc:'Pay using the QR code and send a screenshot to below given whatsapp number. We\'ll connect with you within 30 minutes!'
-      }
+    paypal: {
+      qrCode: "path_to_paypal_qr_code.png",
+      contact: "moinzainab786@gmail.com",
+      desc: "Pay on this Paypal email id and send a screenshot to below given whatsapp number. We'll connect with you within 30 minutes!",
+    },
+    upi: {
+      qrCode: "assets/images/upiqr.jpg",
+      contact: "toolswalaatoolswala@okhdfcbank",
+      desc: "Pay using the QR code and send a screenshot to below given whatsapp number. We'll connect with you within 30 minutes!",
+    },
   };
 
   const sampleToolData = {
     name: "Bundle",
     description: "This is bundle of tools",
-    month: 600, 
-    quarter: 999, 
-    yearly: 3000
+    month: 600,
+    quarter: 999,
+    yearly: 3000,
   };
 
-  
   // Function to fetch tools
   async function fetchTools() {
-    console.log("in fetch tools")
-    const toolContainer = document.querySelector('.all-tools');
-    toolContainer.innerHTML = '<p>Loading tools...</p>'; 
-      try {
-          const response = await fetch('./assets/js/tools.json');  // Replace with your API endpoint
-          const tools = await response.json();
+    console.log("in fetch tools");
+    const toolContainer = document.querySelector(".all-tools");
+    toolContainer.innerHTML = "<p>Loading tools...</p>";
+    try {
+      const response = await fetch("./assets/js/tools.json");
+      const tools = await response.json();
 
-          toolContainer.innerHTML = ''; 
+      toolContainer.innerHTML = "";
 
-          tools.forEach(tool => {
-              const toolElement = `
+      tools.forEach((tool) => {
+        const toolElement = `
                      <div class="col-12 col-sm-6 col-md-4 mb-4 single-tool">  <!-- 1 column on small devices, 3 on medium and above -->
         <div class="rounded bundleCard" style="background-color: #f5f5f5; border: 1px solid #e0e0e0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
             <div class="card-image" style="padding: 0px; display: flex; justify-content: center; align-items: center; background-color: #f8f8f8;">
@@ -1360,260 +1358,267 @@ $(document).ready(function () {
         </div>
     </div>
               `;
-              toolContainer.innerHTML += toolElement;
-          });
+        toolContainer.innerHTML += toolElement;
+      });
 
-          // Add event listeners to the buy buttons
-          document.querySelectorAll('.buy-button').forEach(button => {
-              button.addEventListener('click', event => {
-                  const toolId = event.currentTarget.getAttribute('data-tool-id');
-                  const selectedTool = tools.find(t => t._id === toolId);
-                  console.log(selectedTool)
-                  if(selectedTool)
-                    showModal(selectedTool);
-              });
-          });
-
-      } catch (error) {
-        toolContainer.innerHTML = '<p>Failed to load tools. Please refresh page.</p>';
-          console.error('Error fetching tools:', error);
-      }
+      // Add event listeners to the buy buttons
+      document.querySelectorAll(".buy-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const toolId = event.currentTarget.getAttribute("data-tool-id");
+          const selectedTool = tools.find((t) => t._id === toolId);
+          console.log(selectedTool);
+          if (selectedTool) showModal(selectedTool);
+        });
+      });
+    } catch (error) {
+      toolContainer.innerHTML =
+        "<p>Failed to load tools. Please refresh page.</p>";
+      console.error("Error fetching tools:", error);
+    }
   }
 
   // Function to reset modal to default state
   function resetModal() {
-      currentCurrency = 'inr'; // Reset to INR currency
-      document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelector('#rupee-btn').classList.add('active'); // Default currency
-      document.querySelectorAll('.pricing-btn').forEach(btn => btn.classList.remove('active')); // Reset pricing buttons
-      document.querySelector('#monthly-btn').classList.add('active'); // Default to monthly pricing
+    currentCurrency = "inr";
+    document
+      .querySelectorAll(".payment-btn")
+      .forEach((btn) => btn.classList.remove("active"));
+    document
+      .querySelectorAll(".currency-btn")
+      .forEach((btn) => btn.classList.remove("active"));
+    document.querySelector("#rupee-btn").classList.add("active"); // Default currency
+    document
+      .querySelectorAll(".pricing-btn")
+      .forEach((btn) => btn.classList.remove("active")); // Reset pricing buttons
+    document.querySelector("#monthly-btn").classList.add("active"); // Default to monthly pricing
   }
 
   // Function to update the price display based on the selected period and currency
   function updatePriceDisplay(tool, priceType) {
-      const priceInRupee = tool[priceType];
-      const priceInDollar = (priceInRupee * conversionRate).toFixed(2);
+    const priceInRupee = tool[priceType];
+    const priceInDollar = (priceInRupee * conversionRate).toFixed(2);
 
-      currentPrice = {
-          inr: priceInRupee,
-          usd: priceInDollar
-      };
+    currentPrice = {
+      inr: priceInRupee,
+      usd: priceInDollar,
+    };
 
-      const priceToShow = currentCurrency === 'usd' ? currentPrice.usd : currentPrice.inr;
-      const currencySymbol = currentCurrency === 'usd' ? '$' : '₹';
-      document.getElementById('priceDisplay').textContent = `${currencySymbol} ${priceToShow}`;
+    const priceToShow =
+      currentCurrency === "usd" ? currentPrice.usd : currentPrice.inr;
+    const currencySymbol = currentCurrency === "usd" ? "$" : "₹";
+    document.getElementById(
+      "priceDisplay"
+    ).textContent = `${currencySymbol} ${priceToShow}`;
   }
 
   // Function to show the modal with tool data
   function showModal(tool) {
-      resetModal(); // Ensure defaults are set
+    resetModal();
 
-      // Populate modal with the tool data
-      document.getElementById('toolName').textContent = tool.name;
-      document.getElementById('toolDescription').textContent = tool.description;
-      updatePriceDisplay(tool, 'month'); // Default to monthly price
-
-      // Attach event listeners to the pricing buttons
-      document.querySelectorAll('.pricing-btn').forEach(button => {
-          button.addEventListener('click', event => {
-              document.querySelectorAll('.pricing-btn').forEach(btn => btn.classList.remove('active'));
-              event.currentTarget.classList.add('active');
-              
-
-              const priceType = event.currentTarget.getAttribute('data-price');
-              updatePriceDisplay(tool, priceType);
-          });
-      });
-
-      // Attach event listeners to currency buttons
-      document.querySelectorAll('.currency-btn').forEach(button => {
-          button.addEventListener('click', event => {
-              document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
-              event.currentTarget.classList.add('active');
-
-              currentCurrency = event.currentTarget.getAttribute('data-currency');
-              const priceType = document.querySelector('.pricing-btn.active').getAttribute('data-price');
-              updatePriceDisplay(tool, priceType); // Update price when currency is switched
-          });
-      });
-      document.querySelectorAll('.payment-btn').forEach(button => {
-        button.addEventListener('click', event => {
-            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-        });
-    });
-
-      // Show the modal
-      const modal = new bootstrap.Modal(document.getElementById('toolModal'));
-      modal.show();
-
-      // Handle payment options
-      // document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(tool, 'paypal', modal);
-      // document.getElementById('payWithUPI').onclick = () => showPaymentInfo(tool, 'upi', modal);
-      const buyButton = document.getElementById('buyButton');
-      const payWithPayPalButton = document.getElementById('payWithPayPal');
-      const payWithUPIButton = document.getElementById('payWithUPI');
-      
-      // Disable "Buy" button initially
-      buyButton.disabled = true;
-      
-      // Add event listeners to payment selection buttons to enable "Buy" button
-      payWithPayPalButton.onclick = () => {
-          selectPaymentMethod('paypal');
-      };
-      payWithUPIButton.onclick = () => {
-          selectPaymentMethod('upi');
-      };
-      
-      // Track selected payment method
-      let selectedPaymentMethod = null;
-      
-      // Function to handle payment method selection
-      function selectPaymentMethod(method) {
-          selectedPaymentMethod = method;
-          buyButton.disabled = false; // Enable "Buy" button
-      }
-      
-      // Add event listener to "Buy" button to open payment modal
-      buyButton.addEventListener('click', () => {
-          if (selectedPaymentMethod) {
-              // If a payment method is selected, proceed to the payment modal
-              showPaymentInfo(selectedPaymentMethod, modal);
-          }
-      });
-      // Reset modal on close
-      const closeButton = document.querySelector('.btn-close');
-      closeButton.addEventListener('click', () => {
-          modal.hide();
-          resetModal(); // Ensure defaults are set after close
-      });
-  }
-
-  // Function to show the payment modal and close the first modal
-  function showPaymentInfo(paymentMethod, toolModal) {
-    const paymentDetails = paymentMethods[paymentMethod];
-    if (paymentDetails) {
-        if (paymentMethod === 'paypal') {
-            // For PayPal, remove the QR code and display the email only
-            document.getElementById('qrCode').style.display = 'none';  // Hide the QR code
-            document.getElementById('contactDetails').innerHTML = `Email: ${paymentDetails.contact} <br>
-                <strong>Total Price: ${document.getElementById('priceDisplay').textContent}</strong>
-            `;
-            document.getElementById('description').textContent = `${paymentDetails.desc}`
-        } else {
-            // For other payment methods, display QR code
-            document.getElementById('qrCode').style.display = 'block';  // Show the QR code
-            document.getElementById('qrCode').src = paymentDetails.qrCode;  // Set the QR code
-            document.getElementById('contactDetails').innerHTML = `
-                ${paymentDetails.contact} <br>
-                <strong>Total Price: ${document.getElementById('priceDisplay').textContent}</strong>
-            `;
-            document.getElementById('description').textContent = `${paymentDetails.desc}`
-        }
-
-        // Close the first modal and show the second modal
-        toolModal.hide();
-        const paymentModal = new bootstrap.Modal(document.getElementById('paymentInfoModal'));
-        paymentModal.show();
-
-        // Reset payment modal on close
-        const closeButton = document.querySelector('.close');
-        closeButton.addEventListener('click', () => {
-            paymentModal.hide();
-        });
-    }
-}
-  function showSampleToolModal() {
-    resetModal(); // Reset modal state
-
-    // Populate modal with the sample tool data
-    document.getElementById('toolName').textContent = sampleToolData.name;
-    document.getElementById('toolDescription').textContent = sampleToolData.description;
-    updatePriceDisplay(sampleToolData, 'month'); // Default to monthly price
+    document.getElementById("toolName").textContent = tool.name;
+    document.getElementById("toolDescription").textContent = tool.description;
+    updatePriceDisplay(tool, "month"); // Default to monthly price
 
     // Attach event listeners to the pricing buttons
-    document.querySelectorAll('.pricing-btn').forEach(button => {
-      button.addEventListener('click', event => {
-        document.querySelectorAll('.pricing-btn').forEach(btn => btn.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+    document.querySelectorAll(".pricing-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document
+          .querySelectorAll(".pricing-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
 
-        const priceType = event.currentTarget.getAttribute('data-price');
-        updatePriceDisplay(sampleToolData, priceType);
+        const priceType = event.currentTarget.getAttribute("data-price");
+        updatePriceDisplay(tool, priceType);
       });
     });
 
     // Attach event listeners to currency buttons
-    document.querySelectorAll('.currency-btn').forEach(button => {
-      button.addEventListener('click', event => {
-        document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+    document.querySelectorAll(".currency-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document
+          .querySelectorAll(".currency-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
 
-        currentCurrency = event.currentTarget.getAttribute('data-currency');
-        const priceType = document.querySelector('.pricing-btn.active').getAttribute('data-price');
-        updatePriceDisplay(sampleToolData, priceType); // Update price when currency is switched
+        currentCurrency = event.currentTarget.getAttribute("data-currency");
+        const priceType = document
+          .querySelector(".pricing-btn.active")
+          .getAttribute("data-price");
+        updatePriceDisplay(tool, priceType); // Update price when currency is switched
       });
     });
-    document.querySelectorAll('.payment-btn').forEach(button => {
-      button.addEventListener('click', event => {
-          document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
-          event.currentTarget.classList.add('active');
+    document.querySelectorAll(".payment-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document
+          .querySelectorAll(".payment-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
       });
-  });
+    });
 
     // Show the modal
-    const modal = new bootstrap.Modal(document.getElementById('toolModal'));
+    const modal = new bootstrap.Modal(document.getElementById("toolModal"));
     modal.show();
+    const buyButton = document.getElementById("buyButton");
+    const payWithPayPalButton = document.getElementById("payWithPayPal");
+    const payWithUPIButton = document.getElementById("payWithUPI");
 
-    // Handle payment options
-    // document.getElementById('payWithPayPal').onclick = () => showPaymentInfo(sampleToolData, 'paypal', modal);
-    // document.getElementById('payWithUPI').onclick = () => showPaymentInfo(sampleToolData, 'upi', modal);
-    const buyButton = document.getElementById('buyButton');
-    const payWithPayPalButton = document.getElementById('payWithPayPal');
-    const payWithUPIButton = document.getElementById('payWithUPI');
-    
-    // Disable "Buy" button initially
     buyButton.disabled = true;
-    
-    // Add event listeners to payment selection buttons to enable "Buy" button
+
     payWithPayPalButton.onclick = () => {
-        selectPaymentMethod('paypal');
+      selectPaymentMethod("paypal");
     };
     payWithUPIButton.onclick = () => {
-        selectPaymentMethod('upi');
+      selectPaymentMethod("upi");
     };
-    
-    // Track selected payment method
+
     let selectedPaymentMethod = null;
-    
-    // Function to handle payment method selection
+
     function selectPaymentMethod(method) {
-        selectedPaymentMethod = method;
-        buyButton.disabled = false; // Enable "Buy" button
+      selectedPaymentMethod = method;
+      buyButton.disabled = false;
     }
-    
-    // Add event listener to "Buy" button to open payment modal
-    buyButton.addEventListener('click', () => {
-        if (selectedPaymentMethod) {
-            // If a payment method is selected, proceed to the payment modal
-            showPaymentInfo(selectedPaymentMethod, modal);
-        }
+
+    buyButton.addEventListener("click", () => {
+      if (selectedPaymentMethod) {
+        showPaymentInfo(selectedPaymentMethod, modal);
+      }
+    });
+    const closeButton = document.querySelector(".btn-close");
+    closeButton.addEventListener("click", () => {
+      modal.hide();
+      resetModal();
+    });
+  }
+
+  // Function to show the payment modal
+  function showPaymentInfo(paymentMethod, toolModal) {
+    const paymentDetails = paymentMethods[paymentMethod];
+    if (paymentDetails) {
+      if (paymentMethod === "paypal") {
+        document.getElementById("qrCode").style.display = "none";
+        document.getElementById("contactDetails").innerHTML = `Email: ${
+          paymentDetails.contact
+        } <br>
+                <strong>Total Price: ${
+                  document.getElementById("priceDisplay").textContent
+                }</strong>
+            `;
+        document.getElementById(
+          "description"
+        ).textContent = `${paymentDetails.desc}`;
+      } else {
+        document.getElementById("qrCode").style.display = "block";
+        document.getElementById("qrCode").src = paymentDetails.qrCode;
+        document.getElementById("contactDetails").innerHTML = `
+                ${paymentDetails.contact} <br>
+                <strong>Total Price: ${
+                  document.getElementById("priceDisplay").textContent
+                }</strong>
+            `;
+        document.getElementById(
+          "description"
+        ).textContent = `${paymentDetails.desc}`;
+      }
+
+      // Close the first modal and show the second modal
+      toolModal.hide();
+      const paymentModal = new bootstrap.Modal(
+        document.getElementById("paymentInfoModal")
+      );
+      paymentModal.show();
+
+      const closeButton = document.querySelector(".close");
+      closeButton.addEventListener("click", () => {
+        paymentModal.hide();
+      });
+    }
+  }
+  function showSampleToolModal() {
+    resetModal();
+
+    document.getElementById("toolName").textContent = sampleToolData.name;
+    document.getElementById("toolDescription").textContent =
+      sampleToolData.description;
+    updatePriceDisplay(sampleToolData, "month");
+
+    document.querySelectorAll(".pricing-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document
+          .querySelectorAll(".pricing-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+
+        const priceType = event.currentTarget.getAttribute("data-price");
+        updatePriceDisplay(sampleToolData, priceType);
+      });
+    });
+
+    document.querySelectorAll(".currency-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document
+          .querySelectorAll(".currency-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+
+        currentCurrency = event.currentTarget.getAttribute("data-currency");
+        const priceType = document
+          .querySelector(".pricing-btn.active")
+          .getAttribute("data-price");
+        updatePriceDisplay(sampleToolData, priceType);
+      });
+    });
+    document.querySelectorAll(".payment-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        document
+          .querySelectorAll(".payment-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+      });
+    });
+
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById("toolModal"));
+    modal.show();
+
+    const buyButton = document.getElementById("buyButton");
+    const payWithPayPalButton = document.getElementById("payWithPayPal");
+    const payWithUPIButton = document.getElementById("payWithUPI");
+
+    buyButton.disabled = true;
+
+    payWithPayPalButton.onclick = () => {
+      selectPaymentMethod("paypal");
+    };
+    payWithUPIButton.onclick = () => {
+      selectPaymentMethod("upi");
+    };
+
+    let selectedPaymentMethod = null;
+
+    function selectPaymentMethod(method) {
+      selectedPaymentMethod = method;
+      buyButton.disabled = false;
+    }
+
+    buyButton.addEventListener("click", () => {
+      if (selectedPaymentMethod) {
+        showPaymentInfo(selectedPaymentMethod, modal);
+      }
     });
     // Reset modal on close
-    const closeButton = document.querySelector('.btn-close');
-    closeButton.addEventListener('click', () => {
+    const closeButton = document.querySelector(".btn-close");
+    closeButton.addEventListener("click", () => {
       modal.hide();
-      resetModal(); // Ensure defaults are set after close
+      resetModal();
     });
   }
   fetchTools();
-  document.getElementById('bundleBuy').addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default action
-    showSampleToolModal(); // Show the sample tool modal
+  document.getElementById("bundleBuy").addEventListener("click", (event) => {
+    event.preventDefault();
+    showSampleToolModal();
   });
-  // Fetch tools when the page loads
 });
-
 
 $(document).ready(function () {
   function sendAjaxRequest(url, formData, successCallback, errorCallback) {
