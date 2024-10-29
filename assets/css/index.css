@@ -1,149 +1,119 @@
-/* Modal Header */
 .modal-header {
     text-align: center;
-    padding: 10px 15px; /* Adjust header padding */
+    padding: 10px 15px;
 }
-
-/* Tool Name Styles */
 #toolName {
     font-size: 24px;
     font-weight: bold;
 }
-
-/* Modal Body Styles */
+.tool-description {
+    text-align: center;
+    padding: 0;
+}
+.modal-dialog {
+    margin: auto;
+    display: flex;
+    align-items: center;
+   
+}
 .modal-body {
     display: flex;
     flex-direction: column;
-    padding: 10px; /* Reduce body padding */
-    gap: 5px; /* Reduced row spacing for the first modal */
+    align-items: center;
+    width: auto;
+    padding: 0;
 }
-
-/* Tool Description Styles */
-.tool-description {
-    text-align: center;
-    padding: 0; /* Remove padding */
-}
-
-/* Pricing, Currency, and Payment Options Styles */
 .pricing-options, .currency-options, .payment-options {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 0; /* Remove padding */
-    gap: 5px; /* Minimized gap between sections */
+    padding: 0;
+    gap: 5px;
 }
-
-/* Button Styles */
-.pricing-options .btn, 
-.currency-options .btn, 
-.payment-options .btn {
-    border: 1px solid var(--primary-color); /* Add border to buttons */
-    padding: 5px 10px; /* Adjust padding to minimize button size */
+.pricing-options .btn, .currency-options .btn, .payment-options .btn {
+    border: 1px solid var(--primary-color);
+    padding: 5px 10px;
 }
-#buyButton{
+#buyButton {
     border-radius: 10px;
-    margin-top:30px;
+    margin-top: 30px;
     background-color: var(--primary-color);
-    color:white;
-    font-size: 16px; 
-    padding: 10px; 
+    color: white;
+    font-size: 16px;
+    padding: 10px;
     border-radius: 5px;
 }
-
-/* Price Display Styles */
+@media (min-width: 768px) {
+    .buy-button-container {
+        justify-content: flex-end;
+        align-items: end;
+    }
+}
+@media (max-width: 767px) {
+    .buy-button-container {
+        justify-content: flex-start;
+        align-items: end;
+    }
+}
 .price-display {
     font-size: 20px;
     font-weight: bold;
 }
-/* Base button styles */
-.pricing-btn,
-.currency-btn,
-#payWithUPI,
-#payWithPayPal {
-    border: 1px solid transparent; /* Start with a transparent border */
-    color: #000; /* Default text color for inactive buttons (black) */
-    background-color: transparent; /* No background color for inactive buttons */
+.pricing-btn, .currency-btn, #payWithUPI, #payWithPayPal {
+    border: 1px solid transparent;
+    color: #000;
+    background-color: transparent;
 }
-
-/* Inactive button styles */
-.pricing-btn:not(.active),
-.currency-btn:not(.active) {
-    border: 1px solid var(--primary-color); /* Set border color when inactive */
-    color: #000; /* Ensure text color is black when inactive */
+.pricing-btn:not(.active), .currency-btn:not(.active) {
+    border: 1px solid var(--primary-color);
+    color: #000;
 }
-
-/* Active button styles */
-.pricing-btn.active,
-.currency-btn.active,
-#payWithUPI.active,
-#payWithPayPal.active {
-    background-color: var(--primary-color) !important; /* Fill color for active buttons */
-    color: #fff !important; /* Text color white for active buttons */
+.pricing-btn.active, .currency-btn.active, #payWithUPI.active, #payWithPayPal.active {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
 }
-
-/* Hover effects */
-.pricing-btn:hover,
-.currency-btn:hover,
-#payWithUPI:hover,
-#payWithPayPal:hover {
-    background-color: var(--primary-color); /* Hover fill color */
-    color: #fff; /* Text color white on hover */
+.pricing-btn:hover, .currency-btn:hover, #payWithUPI:hover, #payWithPayPal:hover {
+    background-color: var(--primary-color);
+    color: #fff;
 }
-
-/* Inactive button hover effects */
-.pricing-btn:not(.active):hover,
-.currency-btn:not(.active):hover {
-    border: 1px solid var(--primary-color); /* Keep border color on hover */
-    outline: 2px solid var(--primary-color); /* Optional: Add outline color on hover */
-    color: #000; /* Keep text color black */
+.pricing-btn:not(.active):hover, .currency-btn:not(.active):hover {
+    border: 1px solid var(--primary-color);
+    outline: 2px solid var(--primary-color);
+    color: #000;
 }
-
-/* Payment button styles */
-#payWithUPI,
-#payWithPayPal {
-    padding: 5px 10px; /* Adjust padding */
+#payWithUPI, #payWithPayPal {
+    padding: 5px 10px;
 }
-
-/* Override Bootstrap default styles for button hover states */
 .btn-outline-primary {
-    border-color: var(--primary-color) !important; /* Ensure border color matches */
+    border-color: var(--primary-color) !important;
 }
-
 .btn-outline-primary:hover {
-    background-color: var(--primary-color) !important; /* Ensure hover background color */
-    color: #fff !important; /* Ensure text color white on hover */
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
 }
-
-
-/* QR Code Styles */
 #qrCode {
     display: block;
     margin: 0 auto;
 }
-
 .counter-container {
-    display: flex;                /* Use flexbox for alignment */
-    flex-direction: column;      /* Stack text vertically */
-    align-items: center;         /* Center items horizontally */
-    padding: 15px 20px;          /* Padding around content */
-    margin: 10px;                /* Margin between items */
-    transition: transform 0.2s;  /* Transition effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px;
+    transition: transform 0.2s;
 }
-
 .counter-container:hover {
-    transform: translateY(-3px); /* Lift effect on hover */
+    transform: translateY(-3px);
 }
-
 .animated-counter {
-    font-size: 36px;            /* Font size for the counter */
-    font-weight: bold;          /* Bold font for emphasis */
-    color: #333;                /* Dark color for contrast */
-    margin: 0;                  /* Remove default margin */
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
 }
-
 h4 {
-    font-size: 16px;            /* Font size for the label */
-    color: #666;                /* Slightly lighter color for labels */
-    margin-top: 5px;            /* Space above labels */
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
 }
-

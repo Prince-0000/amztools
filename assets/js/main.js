@@ -1337,7 +1337,7 @@ $(document).ready(function () {
     const toolContainer = document.querySelector('.all-tools');
     toolContainer.innerHTML = '<p>Loading tools...</p>'; 
       try {
-          const response = await fetch('https://software-zobd.onrender.com/api/tool');  // Replace with your API endpoint
+          const response = await fetch('./assets/js/tools.json');  // Replace with your API endpoint
           const tools = await response.json();
 
           toolContainer.innerHTML = ''; 
@@ -1368,7 +1368,9 @@ $(document).ready(function () {
               button.addEventListener('click', event => {
                   const toolId = event.currentTarget.getAttribute('data-tool-id');
                   const selectedTool = tools.find(t => t._id === toolId);
-                  showModal(selectedTool);
+                  console.log(selectedTool)
+                  if(selectedTool)
+                    showModal(selectedTool);
               });
           });
 

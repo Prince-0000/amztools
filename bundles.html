@@ -434,16 +434,16 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                 
-                            <div class="modal-body d-flex flex-column">
+                            <div class="modal-body d-flex flex-column align-items-center">
                                 <!-- Tool Description -->
-                                <div class="tool-description">
+                                <div class="tool-description text-center mb-3">
                                     <p id="toolDescription">Tool description goes here.</p>
                                 </div>
                 
                                 <!-- Pricing Options -->
-                                <div class="pricing-options">
+                                <div class="pricing-options mb-3">
                                     <h5>Choose Pricing Option:</h5>
-                                    <div class="d-flex flex-wrap gap-2">
+                                    <div class="d-flex flex-wrap gap-2 justify-content-center">
                                         <button class="btn btn-outline-primary pricing-btn" id="monthly-btn" data-price="month">1 Month</button>
                                         <button class="btn btn-outline-primary pricing-btn" id="quarterly-btn" data-price="quarter">2 Month</button>
                                         <button class="btn btn-outline-primary pricing-btn" id="yearly-btn" data-price="yearly">12 Month</button>
@@ -451,31 +451,33 @@
                                 </div>
                 
                                 <!-- Currency Options -->
-                                <div class="currency-options">
+                                <div class="currency-options mb-3">
                                     <h5>Choose Currency:</h5>
-                                    <div class="d-flex flex-wrap gap-2">
+                                    <div class="d-flex flex-wrap gap-2 justify-content-center">
                                         <button class="btn btn-outline-primary currency-btn" id="rupee-btn" data-currency="inr">Rupee</button>
                                         <button class="btn btn-outline-primary currency-btn" id="dollar-btn" data-currency="usd">Dollar</button>
                                     </div>
                                 </div>
                 
                                 <!-- Price Display -->
-                                <div class="price-display text-center">
+                                <div class="price-display text-center mb-3">
                                     <h4>Price: <span id="priceDisplay"></span></h4>
                                 </div>
                 
-                                <!-- Payment Buttons -->
-                                <div class="payment-options">
+                                <!-- Payment Options -->
+                                <div class="payment-options mb-3">
                                     <h5>Payment Options:</h5>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <button class="payment-btn btn btn-outline-primary" id="payWithUPI">Paytm</button>
+                                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                        <button class="payment-btn btn btn-outline-primary" id="payWithUPI">UPI</button>
                                         <button class="payment-btn btn btn-outline-primary" id="payWithPayPal">PayPal</button>
                                     </div>
                                 </div>
-                                <div class="buy-button-container">
-                                    <button id="buyButton" class="btn mx-auto btn-primary smooth-anchor mt-10 buy-button" >
-                                <i class="icon-arrow-right-circle" style="margin-left: 5px;"></i> Proceed to buy
-                            </button>
+                
+                                <!-- Buy Button -->
+                                <div class="w-100 d-flex justify-content-end mt-3">
+                                    <button id="buyButton" class="btn btn-primary smooth-anchor">
+                                        <i class="icon-arrow-right-circle" style="margin-left: 5px;"></i> Proceed to buy
+                                    </button>
                                 </div>
                             </div>
                         </div>
