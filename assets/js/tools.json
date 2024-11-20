@@ -4,8 +4,8 @@
     "name": "Helium 10",
     "description": "All-in-one software suite for Amazon sellers",
     "month": 700,
-    "quarter": 1800,
-    "yearly": 3000,
+    "quarter": 2000,
+    "yearly": 3500,
     "img": "./assets/images/helium.jpeg"
   },
   {
@@ -13,8 +13,8 @@
     "name": "Jungle Scout",
     "description": "Amazon product research and analytics tool",
     "month": 700,
-    "quarter": 1800,
-    "yearly": 3000,
+    "quarter": 2000,
+    "yearly": 3500,
     "img": "./assets/images/jungle.jpeg"
   },
   {

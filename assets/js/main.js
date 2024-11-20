@@ -1324,9 +1324,9 @@ $(document).ready(function () {
   const sampleToolData = {
     name: "Bundle",
     description: "This is bundle of tools",
-    month: 600,
-    quarter: 999,
-    yearly: 3000,
+    month: 1500,
+    quarter: 5000,
+    yearly: 7000,
   };
 
   // Function to fetch tools
@@ -1396,7 +1396,7 @@ $(document).ready(function () {
   // Function to update the price display based on the selected period and currency
   function updatePriceDisplay(tool, priceType) {
     const priceInRupee = tool[priceType];
-    const priceInDollar = (priceInRupee * conversionRate).toFixed(2);
+    const priceInDollar = Math.ceil((priceInRupee * conversionRate).toFixed(2));
 
     currentPrice = {
       inr: priceInRupee,
