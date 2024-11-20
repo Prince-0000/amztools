@@ -1311,12 +1311,12 @@ $(document).ready(function () {
   const paymentMethods = {
     paypal: {
       qrCode: "path_to_paypal_qr_code.png",
-      contact: "moinzainab786@gmail.com",
+      contact: "moinchandiwala95@okicici",
       desc: "Pay on this Paypal email id and send a screenshot to below given whatsapp number. We'll connect with you within 30 minutes!",
     },
     upi: {
-      qrCode: "assets/images/upiqr.jpg",
-      contact: "toolswalaatoolswala@okhdfcbank",
+      qrCode: "assets/images/payment.jpg",
+      contact: "moinchandiwala95@okicici",
       desc: "Pay using the QR code and send a screenshot to below given whatsapp number. We'll connect with you within 30 minutes!",
     },
   };

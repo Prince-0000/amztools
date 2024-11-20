@@ -1,307 +1,137 @@
 [
   {
-    "_id": "6703bfe1da03af439b2eaa26",
-    "name": "Envato Element",
-    "description": "A tool for hammering nails",
-    "month": 300,
-    "quarter": 500,
+    "_id": "1",
+    "name": "Helium 10",
+    "description": "All-in-one software suite for Amazon sellers",
+    "month": 700,
+    "quarter": 1800,
+    "yearly": 3000,
+    "img": "./assets/images/helium.jpeg"
+  },
+  {
+    "_id": "2",
+    "name": "Jungle Scout",
+    "description": "Amazon product research and analytics tool",
+    "month": 700,
+    "quarter": 1800,
+    "yearly": 3000,
+    "img": "./assets/images/jungle.jpeg"
+  },
+  {
+    "_id": "3",
+    "name": "Viral Launch",
+    "description": "Amazon product launch and market intelligence platform",
+    "month": 500,
+    "quarter": 1000,
     "yearly": 1500,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638278/1_nfikf3.png\""
+    "img": "./assets/images/viral.jpeg"
   },
   {
-    "_id": "6708efd0f4b321bdefa8bb15",
-    "name": "Semrush",
-    "month": 150,
+    "_id": "4",
+    "name": "Egrow",
+    "description": "Amazon FBA product research tool for sellers",
+    "month": 500,
+    "quarter": 1000,
+    "yearly": 1500,
+    "img": "./assets/images/egrow.jpeg"
+  },
+  {
+    "_id": "5",
+    "name": "minea",
+    "description": "Amazon product research and trends analysis tool",
+    "month": 700,
+    "quarter": 2000,
+    "yearly": 3500,
+    "img": "./assets/images/"
+  },
+  {
+    "_id": "6",
+    "name": "amzscout",
+    "description": "Amazon FBA research and tracking software",
+    "month": 700,
+    "quarter": 2000,
+    "yearly": 3500,
+    "img": "./assets/images/"
+  },
+  {
+    "_id": "7",
+    "name": "Rocket Source",
+    "description": "Tool for Amazon product research and trends analysis",
+    "month": 500,
+    "quarter": 1000,
+    "yearly": 1500,
+    "img": "./assets/images/rocket.jpeg"
+  },
+  {
+    "_id": "8",
+    "name": "Nice Scraper",
+    "description": "Web scraping tool for Amazon product research",
+    "month": 500,
+    "quarter": 1000,
+    "yearly": 1500,
+    "img": "./assets/images/niche.jpeg"
+  },
+  {
+    "_id": "9",
+    "name": "Xenon hunt",
+    "description": "Amazon product research and competitor tracking tool",
+    "month": 500,
+    "quarter": 1000,
+    "yearly": 1500,
+    "img": "./assets/images/xhunt.jpeg"
+  },
+  {
+    "_id": "10",
+    "name": "Sell The Trend",
+    "description": "Amazon product research and trend tracking platform",
+    "month": 500,
+    "quarter": 1000,
+    "yearly": 1500,
+    "img": "./assets/images/sell.jpeg"
+  },
+  {
+    "_id": "11",
+    "name": "Chat GPT",
+    "description": "AI-powered chatbot for conversational AI and assistance",
+    "month": 500,
+    "quarter": 1000,
+    "yearly": 1500,
+    "img": "./assets/images/chatgpt.jpeg"
+  },
+  {
+    "_id": "12",
+    "name": "Canva Pro",
+    "description": "Design tool for creating graphics, presentations, and more",
+    "month": 250,
     "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638278/2_jnsnk7.png"
+    "yearly": 250,
+    "img": "./assets/images/canva.jpeg"
   },
   {
-    "_id": "6713b832060561df7445845b",
-    "name": "Scribd",
-    "description": "Subscription service for audiobooks, ebooks, and documents.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/12_ifvkzm.png"
-  },
-  {
-    "_id": "6713b832060561df7445845e",
-    "name": "Skillshare",
-    "description": "Online learning platform for creative and professional skills.",
-    "month": 200,
-    "quarter": 200,
-    "yearly": 200,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/15_vbokrc.png"
-  },
-  {
-    "_id": "6713b832060561df74458453",
-    "name": "Ubersuggest",
-    "description": "SEO tool for keyword research and content ideas.",
-    "month": 200,
-    "quarter": 300,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/4_iiayiq.png"
-  },
-  {
-    "_id": "6713b832060561df74458452",
-    "name": "Writesonic",
-    "description": "AI-powered content writing and copywriting assistant.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638278/3_crv0pq.png"
-  },
-  {
-    "_id": "6713b832060561df74458466",
-    "name": "Creator AI",
-    "description": "AI-driven tool for generating marketing content.",
-    "month": 100,
-    "quarter": 150,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/21_fr6aiz.png"
-  },
-  {
-    "_id": "6713b832060561df74458467",
-    "name": "Vecteezy",
-    "description": "Free vector graphics and stock photo site for designers.",
-    "month": 100,
-    "quarter": 150,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/22_y6rmiw.png"
-  },
-  {
-    "_id": "6713b832060561df74458462",
-    "name": "Storybase",
-    "description": "Content marketing tool that helps generate engaging story ideas.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1730124626/3_bsrgke.png"
-  },
-  {
-    "_id": "6713b832060561df74458455",
-    "name": "PicMonkey",
-    "description": "Online photo editing and graphic design tool.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/6_fd3lku.png"
-  },
-  {
-    "_id": "6713b832060561df74458457",
+    "_id": "13",
     "name": "Grammarly",
-    "description": "AI-powered grammar and writing improvement tool.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/8_kcmzse.png"
-  },
-  {
-    "_id": "6713b832060561df74458454",
-    "name": "Vyond",
-    "description": "Platform for creating professional animated videos.",
-    "month": 400,
-    "quarter": 700,
-    "yearly": 1800,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/5_fq0px0.png"
-  },
-  {
-    "_id": "6713b832060561df74458456",
-    "name": "Vista Create",
-    "description": "Graphic design platform for making visuals quickly.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/7_z6eq2i.png"
-  },
-  {
-    "_id": "6713b832060561df74458458",
-    "name": "Prezi",
-    "description": "Presentation software for creating dynamic, engaging slides.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/9_pmylyk.png"
-  },
-  {
-    "_id": "6713b832060561df7445845f",
-    "name": "MotionArray",
-    "description": "Subscription for video templates, music, and assets.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/16_hndkrk.png"
-  },
-  {
-    "_id": "6713b832060561df7445845c",
-    "name": "Wordtune",
-    "description": "AI writing tool to improve and rewrite sentences.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/13_jelnjc.png"
-  },
-  {
-    "_id": "6713b832060561df74458465",
-    "name": "SimilarWeb",
-    "description": "Market intelligence platform for tracking website traffic.",
-    "month": 100,
-    "quarter": 150,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/20_kwhjzb.png"
-  },
-  {
-    "_id": "6713b832060561df74458468",
-    "name": "Coursera",
-    "description": "Online platform offering courses from universities and institutions.",
-    "month": 100,
-    "quarter": 150,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/23_w7uhk7.png"
-  },
-  {
-    "_id": "6713b832060561df74458464",
-    "name": "SpyFu",
-    "description": "SEO and PPC tool for competitor research.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638275/19_j9ji7m.png"
-  },
-  {
-    "_id": "6713b832060561df7445846e",
-    "name": "Jasper.ai",
-    "description": "AI tool for generating high-quality content at scale.",
-    "month": 200,
-    "quarter": 300,
-    "yearly": 1200,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/29_zrdwm4.png"
-  },
-  {
-    "_id": "6713b832060561df74458463",
-    "name": "SEO Optimizer",
-    "description": "Website analysis tool for improving SEO performance.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1730124626/4_op6nxd.png"
-  },
-  {
-    "_id": "6713b832060561df74458459",
-    "name": "Answer the Public",
-    "description": "Keyword research tool that visualizes search questions.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/10_trpmnx.png"
-  },
-  {
-    "_id": "6713b832060561df7445846c",
-    "name": "Word AI",
-    "description": "AI-powered rewriting tool for content generation.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/27_og2lok.png"
-  },
-  {
-    "_id": "6713b832060561df7445846d",
-    "name": "Word Hero",
-    "description": "AI writing tool for generating ideas and content.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/28_ckzfmg.png"
-  },
-  {
-    "_id": "6713b832060561df7445846f",
-    "name": "InVideo.io Unlimited",
-    "description": "Platform for creating and editing professional-level videos.",
-    "month": 200,
-    "quarter": 300,
-    "yearly": 1200,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638278/30_kkacac.png"
-  },
-  {
-    "_id": "6713b832060561df7445845a",
-    "name": "Design AI",
-    "description": "AI-powered design assistant for creating visuals.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/11_go51lm.png"
-  },
-  {
-    "_id": "6713b832060561df74458461",
-    "name": "Serpstat",
-    "description": "Growth hacking tool for SEO, PPC, and content marketing.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1730124627/2_y6mcv0.png"
-  },
-  {
-    "_id": "6713b832060561df7445846a",
-    "name": "Turnitin Student",
-    "description": "Plagiarism detection software for academic papers.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/25_mn0lzc.png"
-  },
-  {
-    "_id": "6713b832060561df74458470",
-    "name": "PicsArt",
-    "description": "Creative platform for photo editing, video editing, and design.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638278/31_kavcgh.png"
-  },
-  {
-    "_id": "6713b832060561df7445845d",
-    "name": "CanvaPro",
-    "description": "Professional version of Canva for graphic design with extra features.",
-    "month": 200,
-    "quarter": 200,
-    "yearly": 200,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/14_cwskrw.png"
-  },
-  {
-    "_id": "6713b832060561df74458460",
-    "name": "Pick It",
-    "description": "Content discovery tool for finding licensed photos.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1730124626/1_qx6pxk.png"
-  },
-  {
-    "_id": "6713b832060561df74458469",
-    "name": "Quillbot Premium",
-    "description": "AI-powered paraphrasing tool for better writing.",
-    "month": 150,
-    "quarter": 250,
-    "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638276/24_vb0rxb.png"
-  },
-  {
-    "_id": "6713b832060561df7445846b",
-    "name": "Leonardo AI",
-    "description": "AI-powered tool for generating artwork and images.",
-    "month": 200,
-    "quarter": 350,
+    "description": "Writing assistant tool for grammar and style checking",
+    "month": 300,
+    "quarter": 600,
     "yearly": 1500,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638277/26_et7r19.png"
+    "img": "./assets/images/grammarly.jpeg"
   },
   {
-    "_id": "6713b832060561df74458471",
-    "name": "SEOSite Checkup",
-    "description": "Tool for analyzing website SEO and performance.",
-    "month": 150,
-    "quarter": 250,
+    "_id": "14",
+    "name": "Skill Share",
+    "description": "Online learning platform offering courses in various fields",
+    "month": 300,
+    "quarter": 600,
     "yearly": 1000,
-    "img": "https://res.cloudinary.com/duqkd0ivh/image/upload/v1728638278/32_ofjren.png"
+    "img": "./assets/images/skillshare.jpeg"
+  },
+  {
+    "_id": "15",
+    "name": "Linked In learning",
+    "description": "Professional development and learning platform",
+    "month": 300,
+    "quarter": 600,
+    "yearly": 1000,
+    "img": "./assets/images/linkedin.jpeg"
   }
 ]
