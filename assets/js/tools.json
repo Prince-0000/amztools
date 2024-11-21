@@ -42,7 +42,7 @@
     "month": 700,
     "quarter": 2000,
     "yearly": 3500,
-    "img": "./assets/images/"
+    "img": "./assets/images/minea.jpg"
   },
   {
     "_id": "6",
@@ -51,7 +51,7 @@
     "month": 700,
     "quarter": 2000,
     "yearly": 3500,
-    "img": "./assets/images/"
+    "img": "./assets/images/amzscout.jpg"
   },
   {
     "_id": "7",

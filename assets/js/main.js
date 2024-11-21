@@ -1311,7 +1311,7 @@ $(document).ready(function () {
   const paymentMethods = {
     paypal: {
       qrCode: "path_to_paypal_qr_code.png",
-      contact: "moinchandiwala95@okicici",
+      contact: "moinzainab786@gmail.com",
       desc: "Pay on this Paypal email id and send a screenshot to below given whatsapp number. We'll connect with you within 30 minutes!",
     },
     upi: {
